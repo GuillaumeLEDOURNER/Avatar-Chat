@@ -1,6 +1,15 @@
 package machine
 
-object Analysis 
+object Data 
 {
-    def analyse(r:Request) = ??? 
+    val cache = collection.mutable.Map[String, String]()
+    
+    def getKeys()
+    {
+      
+    }
+    def getValue(key:String)
+    {
+      
+    }
 }
