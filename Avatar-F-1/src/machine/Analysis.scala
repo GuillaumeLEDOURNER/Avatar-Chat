@@ -10,31 +10,35 @@ object Analysis
         ,"marcher","bouger") 
     val lieux = List("gare","théâtre","mairie","hôtel","ville","rennes","bretagne","sncf","tnb","paillette","national","place")
     
+    val mairie = List("marie","hotel","ville","place","rennes")
+    val paillete = List("paillete","théâtre")
+    val TNB = List("théâtre","national","tnb","bretagne")
+    val gare = List("gare","sncf")
     
-     
+    
+    
+    
+     "je cherche l'hotel de ville de Lyon" 
+    //isValide(r => true
+    //keywords("hotel ville, 
     val r = new Request("hotel de ville")
     
     val l = verbe::lieux 
     
     
-    def isValide(l:List[Char]) : Boolean= {
+    def addtokeyword(l:List[Char]) = {
       var a = r.rawInput.split(" ")
-      var c = 0
       for (i <- a){
         if(lieux.contains(i)){
-          c += 1
           r.keywords = r.keywords:+i
         }
       }
-      if(c>0){
-        true 
-      }
-      else{false}
+      
     }
     
     
     def analyse(r:Request) = {
-      
+        
     }
     
     
