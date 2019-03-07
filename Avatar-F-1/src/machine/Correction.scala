@@ -1,6 +1,7 @@
 package machine
 
-object Correction 
-{
-    def hammingDistance(val1:String,val2:String) = ???
+class MyCorrection extends Correction {
+
+  def DistancedeHamming(exp :String,data :String): Boolean ={???}
+  def normalize(exp : String): String ={???}
 }
