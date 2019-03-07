@@ -8,7 +8,7 @@ class Request(rawIn:String)
    
    var valid:Boolean = false;
    
-   val keywords:List[String] = List();
+   var keywords:List[String] = List();
    
    var adress:String= "";
 
