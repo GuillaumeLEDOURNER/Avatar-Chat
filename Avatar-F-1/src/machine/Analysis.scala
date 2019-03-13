@@ -27,7 +27,7 @@ object Analysis
     //keywords("hotel ville, 
     val r = new Request("hotel de ville")
     
-    val l = verbe::lieux 
+    val l = verbe ++ lieux 
     
     
     def addtokeyword(r: Request) = {
@@ -36,7 +36,15 @@ object Analysis
         if(lieux.contains(i)){
           r.keywords = r.keywords:+i
         }
+        else{
+          val c = new MyCorrection
+          for(j <- l){
+            if(c.distancedeHamming(i, j)){
+               r.keywords = r.keywords:+i
+            }
+        }
       }
+    }
     }
     
     
