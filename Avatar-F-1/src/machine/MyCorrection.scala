@@ -75,12 +75,3 @@ class MyCorrection extends Correction {
     test
   }
 }
-
-
-object Truc extends App {
-  var m : MyCorrection = new MyCorrection
-  
-  m.distancedeHamming("gar","gare")
-
-  }
-
