@@ -40,7 +40,7 @@ object Analysis
           val c = new MyCorrection
           for(j <- l){
             if(c.distancedeHamming(i, j)){
-               r.keywords = r.keywords:+i
+               r.keywords = r.keywords:+j
             }
         }
       }
