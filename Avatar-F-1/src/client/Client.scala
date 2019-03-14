@@ -4,5 +4,7 @@ import machine._
 import automaticTester.TestAvatar
 
 object Client extends App {
-	TestAvatar.check(MachineImpl)
+	//TestAvatar.check(MachineImpl)
+	
+	Data.openFile()
 }
