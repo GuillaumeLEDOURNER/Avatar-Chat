@@ -25,7 +25,7 @@ object Data
   {
      data.keys.toArray
   }
-  def getValue(key:String)  // récupère l'adresse d'un lieu a partir de son nom
+  def getValue(key:String) : String = // récupère l'adresse d'un lieu a partir de son nom 
   {
     var result = "";
      for (pair <- data) // on fait une itération pour chaque valeurs

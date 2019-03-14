@@ -33,12 +33,11 @@ object UI {
       }
       
       val inputField = new TextField {
-        maximumSize = new Dimension(400, 100)
       }
      
       val sendButton = new Button {
         text = "<html><font color='red'>Send</font></html>"
-        maximumSize = new Dimension(100, 20)
+        maximumSize = new Dimension(20, 20)
         background = new Color(255, 255, 255);
         reactions += {
           case ButtonClicked(_) => {
