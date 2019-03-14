@@ -5,7 +5,16 @@ trait MachineDialogue {
    *  @param s la requête
    *  @result la liste de réponses
    */
-  def ask(s:String):List[String]
+  def ask(s:String):List[String] = 
+  {
+      val request = new Request(s)
+      
+      List()
+     // Analysis.analyse(request);
+      
+      
+     
+  }
   
   // Pour la partie test par le client
   /** réinitialisation de l'avatar */

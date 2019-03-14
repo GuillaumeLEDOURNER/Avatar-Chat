@@ -10,6 +10,6 @@ class Request(rawIn:String)
    
    var keywords:List[String] = List();
    
-   var adress:String= "";
+   var results:List[String]= List();
 
 }

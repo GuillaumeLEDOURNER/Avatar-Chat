@@ -1,7 +1,16 @@
 package machine
 
 object MachineImpl extends MachineDialogue{
-  def ask(s:String):List[String]= ???
+  override def ask(s:String):List[String]=
+  {
+      val request = new Request(s)
+      
+      List()
+     // Analysis.analyse(request);
+      
+      
+     
+  }
   
   // Pour la partie test par le client
   def reinit= ???

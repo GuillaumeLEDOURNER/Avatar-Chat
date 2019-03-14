@@ -29,7 +29,8 @@ object UI {
         preferredSize = new Dimension(480, 400)
       }
       
-      val inputField = new TextField {
+      val inputField = new TextField 
+      {
         maximumSize = new Dimension(400, 100)
       }
      

@@ -1,7 +1,7 @@
 package machine
 import java.text.Normalizer
 
-class MyCorrection extends Correction {
+object MyCorrection extends Correction {
 
   /**
    * Calcul de la distance entre 2 mots

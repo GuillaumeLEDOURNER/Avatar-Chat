@@ -1,7 +1,8 @@
 package machine
 
 import java.util.Arrays
-class Analysis 
+
+object Analysis 
 {
   
   
@@ -26,7 +27,6 @@ class Analysis
     //isValide(r => true
     //keywords("hotel ville, 
     protected val r = new Request("hotel de ville")
-    protected val c = new MyCorrection
     protected val l = verbe ++ lieux 
     
     
@@ -36,10 +36,10 @@ class Analysis
         for(j <- lieux){
            if(i.substring(0,2)=="l'"){
              val t = i.substring(2,i.length()).toLowerCase()
-             if(c.distancedeHamming(t, j) && !r.keywords.contains(j))r.keywords = r.keywords:+t
+             if(MyCorrection.distancedeHamming(t, j) && !r.keywords.contains(j))r.keywords = r.keywords:+t
            }
            else {
-            if(c.distancedeHamming(i, j) && !r.keywords.contains(j)){
+            if(MyCorrection.distancedeHamming(i, j) && !r.keywords.contains(j)){
                r.keywords = r.keywords:+j
             }
            }
@@ -77,19 +77,19 @@ class Analysis
         
         if(m>=2 && (p+t+g==0)){
           r.valid = true
-          r.adress = "Place de la mairie"
+          r.results ++ "Place de la mairie"
         }
         else if(p>0 && (m+t+g==0)){
           r.valid = true
-          r.adress = "2, rue du Pré de Bris"
+          r.results ++"2, rue du Pré de Bris"
         }
         else if(t>0 &&(p+m+g==0)){
           r.valid = true
-          r.adress = "1, rue Saint-Hélier"
+          r.results ++"1, rue Saint-Hélier"
         }
         else if(g>0 &&(p+m+t==0)){
           r.valid = true
-          r.adress = "19, place de la gare"
+          r.results ++"19, place de la gare"
         }
         else r.valid = false
       }
