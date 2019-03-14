@@ -15,7 +15,9 @@ object Data
     {
       println(line) // affiche la ligne actuelle
       val splitedLine = line.split(';') // on coupe la ligne en fonction du caractère ";"
-      data = data + (splitedLine(0) -> splitedLine(1))
+      if(splitedLine.size >= 2) {
+        data = data + (splitedLine(0) -> splitedLine(1))
+      }
     }
   }
   

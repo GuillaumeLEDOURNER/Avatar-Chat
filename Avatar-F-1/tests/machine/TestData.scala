@@ -21,16 +21,5 @@ class TestData {
     assertEquals(Data.getValue(" Gare SNCF"),"19, Place de la Gare")
     assertEquals(Data.getValue("SNCF"),"19, Place de la Gare")
     assertEquals(Data.getValue("Gare"),"Place de la Gare")
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
   }
 }

@@ -6,5 +6,6 @@ import automaticTester.TestAvatar
 object Client extends App {
 	//TestAvatar.check(MachineImpl)
 	
+  UI.init()
 	Data.openFile()
 }
