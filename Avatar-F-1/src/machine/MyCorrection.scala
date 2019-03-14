@@ -11,11 +11,10 @@ class MyCorrection extends Correction {
    * @return vrai si les 2 mots sont équivalents
    */
   def distancedeHamming(exp :String,data :String): Boolean ={
-  
-   var ex = normalize(exp)
+   val ex = normalize(exp)
    val dat = normalize(data)
-   var t1 = ex.length();
-   var t2 = dat.length();
+   val t1 = ex.length();
+   val t2 = dat.length();
    var d = t2-t1
    var i= 0; 
    var b = false
@@ -27,13 +26,14 @@ class MyCorrection extends Correction {
       }
       i+=1
      }
+      (d<=1)
    } else if (t2 - t1 == 1) {
-    b = distancedeHamming(lettreManquante(ex, dat),data)
-    b
+    val ex2 = lettreManquante(ex, dat)
+    b = distancedeHamming(ex2,data)
+    (b && (ex2.length() == dat.length()))
    } else {
      false
    }
-   (d<=1)
   }
   
   /**
@@ -59,19 +59,19 @@ class MyCorrection extends Correction {
    var t2 = dat.length()
    var i= 0
    var test =""
+
+  if(t2==t1) normalize(exp)
   
-      if(t2==t1) normalize(exp)
-      
-      else if(t1 == t2 - 1){
-        while(t1 !=i && dat.charAt(i)==ex.charAt(i)){ test = test+dat.charAt(i); i+=1 ; }
-        test = test + dat.charAt(i) ;i +=1;
-        
-        while(i<t2 && dat.charAt(i)==ex.charAt(i-1)){ test = test+ex.charAt(i-1);i = i+1;}
-        if(distancedeHamming(test, data)){test}
-      }
-      else if (t1 - t2 >= 2) {
-        ""
-      }
+  else if(t1 == t2 - 1){
+    while(t1 !=i && dat.charAt(i)==ex.charAt(i)){ test = test+dat.charAt(i); i+=1 ; }
+    test = test + dat.charAt(i) ;i +=1;
+    
+    while(i<t2 && dat.charAt(i)==ex.charAt(i-1)){ test = test+ex.charAt(i-1);i = i+1;}
+    if(distancedeHamming(test, data)){test}
+  }
+  else if (t1 - t2 >= 2) {
+    ""
+  }
     test
   }
 }
