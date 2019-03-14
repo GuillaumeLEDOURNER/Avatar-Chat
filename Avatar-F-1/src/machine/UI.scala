@@ -13,9 +13,9 @@ case class SomethingHappened() extends Event {
 
 object UI {
    
-  var buffer = ListBuffer("<html><font color='white'>Avatar : Wesh !</font></html>")
+  var buffer = ListBuffer("<html><font color='black'>Avatar : Wesh !</font></html>")
   
-  var questions = Array("Une autre question ?", "Cherchez vous autre chose ?", "Que puis-je faire d'autre pour vous ?", "Très bonne question ! Autre chose ?", "")
+  var questions = Array("Une autre question ?", "Cherchez vous autre chose ?", "Que puis-je faire d'autre pour vous ?", "Très bonne question ! Autre chose ?")
   
   val randomizer = new Random
   
