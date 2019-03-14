@@ -47,7 +47,11 @@ class TestCorrection {
     assertEquals(true,c.distancedeHamming("maiso","maison"))
     assertEquals(true,c.distancedeHamming("maison","maison"))
     
-    assertEquals(true,c.distancedeHamming("are","gare"))
+    assertEquals(false,c.distancedeHamming("hatl","hotel"))
+    assertEquals(false,c.distancedeHamming("hott","hotel"))
+  
+   assertEquals(false, c.distancedeHamming("americaine", "vie"))
+   assertEquals(false, c.distancedeHamming("gare", "tnb"))
   }
   
 }
