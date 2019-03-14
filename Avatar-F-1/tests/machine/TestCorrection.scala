@@ -8,7 +8,7 @@ class TestCorrection {
   
   // tests
   @Test
-  def test1_1{    
+  def test1{    
     assertTrue(Correction.hammingDistance("test", "test"))
     assertTrue(Correction.hammingDistance("tst", "test"))
     assertTrue(Correction.hammingDistance("est", "test"))
@@ -20,6 +20,9 @@ class TestCorrection {
     assertFalse(Correction.hammingDistance("e", "test"))
     assertFalse(Correction.hammingDistance("s", "test"))
     assertFalse(Correction.hammingDistance("t", "test"))
+    assertFalse(Correction.hammingDistance("", ""))
+    assertFalse(Correction.hammingDistance("", "test"))
+    
     
     
   }
