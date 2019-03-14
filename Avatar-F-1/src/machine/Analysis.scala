@@ -6,45 +6,45 @@ class Analysis
   
   
     
-    val verbe = List("chercher","cherche","cherchons","trouve","aller","rendre","trouver","allons","passer","trouvons"
+    protected val verbe = List("chercher","cherche","cherchons","trouve","aller","rendre","trouver","allons","passer","trouvons"
         ,"marcher","bouger") 
-    val lieux = List("gare","théâtre","mairie","hôtel","ville","rennes","bretagne","sncf","tnb","paillette","national","place")
+    protected val lieux = List("gare","théâtre","mairie","hôtel","ville","rennes","bretagne","sncf","tnb","paillette","national","place")
     
-    val mairie = List("marie","hotel","ville","place","rennes")
-    var m = 0 
-    val paillete = List("paillete","théâtre")
-    var p = 0
-    val TNB = List("théâtre","national","tnb","bretagne")
-    var t = 0
-    val gare = List("gare","sncf")
-    var g = 0
-    val phrases = List()
+    protected val mairie = List("marie","hotel","ville","place","rennes")
+    protected var m = 0 
+    protected val paillete = List("paillete","théâtre")
+    protected var p = 0
+    protected val TNB = List("théâtre","national","tnb","bretagne")
+    protected var t = 0
+    protected val gare = List("gare","sncf")
+    protected var g = 0
+    protected val phrases = List()
     
     
     
      "je cherche l'hotel de ville de Lyon" 
     //isValide(r => true
     //keywords("hotel ville, 
-    val r = new Request("hotel de ville")
-    
-    val l = verbe ++ lieux 
+    protected val r = new Request("hotel de ville")
+    protected val c = new MyCorrection
+    protected val l = verbe ++ lieux 
     
     
     def addtokeyword(r: Request) = {
-      var a = r.rawInput.split(" ")
+      val a = r.rawInput.split(" ")
       for (i <- a){
-        if(l.contains(i)){
-          r.keywords = r.keywords:+i
-        }
-        else{
-          val c = new MyCorrection
-          for(j <- l){
-            if(c.distancedeHamming(i, j)){
+        for(j <- lieux){
+           if(i.substring(0,2)=="l'"){
+             val t = i.substring(2,i.length()).toLowerCase()
+             if(c.distancedeHamming(t, j) && !r.keywords.contains(j))r.keywords = r.keywords:+t
+           }
+           else {
+            if(c.distancedeHamming(i, j) && !r.keywords.contains(j)){
                r.keywords = r.keywords:+j
             }
+           }
         }
       }
-    }
     }
     
     
@@ -60,12 +60,16 @@ class Analysis
         if (gare.contains(x))g=g+1
         }
       }
+      println("m : " +m)
+      println("t : " +t)
+      println("g : " +g)
+      println("p : " +p)
       
     }
     
     
     def analyse(r:Request) = {
-        addtokeyword(r)
+      addtokeyword(r)
       if (r.keywords.isEmpty) r.valid = false
       else {
         checkkeyword(r.keywords)
