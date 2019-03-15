@@ -13,9 +13,9 @@ case class SomethingHappened() extends Event {
 
 object UI {
    
-  var buffer = ListBuffer("<html><font color='black'>Avatar : Wesh !</font></html>")
+  var buffer = ListBuffer("<html><font color='green'>Avatar : Bienvenue sur le chat !</font></html>")
   
-  var questions = Array("Une autre question ?", "Cherchez vous autre chose ?", "Que puis-je faire d'autre pour vous ?", "Très bonne question ! Autre chose ?")
+ 
   
   val randomizer = new Random
   
@@ -43,8 +43,9 @@ object UI {
           case ButtonClicked(_) => {
             this.publish(SomethingHappened())
             list.listData = buffer += "<html><font color='black'>Moi : " + inputField.text + "</font></html>"
+            val results= MachineImpl.ask(inputField.text);
+            list.listData = buffer += "<html><font color='black'>Avatar : " +results + "</font></html>"
             inputField.text = ""
-            list.listData = buffer += "<html><font color='black'>Avatar : " + questions(randomizer.nextInt(questions.size)) + "</font></html>"
           }
         }
       }

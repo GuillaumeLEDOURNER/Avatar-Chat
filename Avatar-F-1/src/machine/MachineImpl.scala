@@ -4,12 +4,8 @@ object MachineImpl extends MachineDialogue{
   override def ask(s:String):List[String]=
   {
       val request = new Request(s)
-      
-      List()
-     // Analysis.analyse(request);
-      
-      
-     
+      Analysis.analyse(request);
+      request.results
   }
   
   // Pour la partie test par le client

@@ -19,13 +19,7 @@ object Analysis
     protected var t = 0
     protected val gare = List("gare","sncf")
     protected var g = 0
-    protected val phrases = List()
-    
-    
-    
-     "je cherche l'hotel de ville de Lyon" 
-    //isValide(r => true
-    //keywords("hotel ville, 
+
     protected val r = new Request("hotel de ville")
     protected val l = verbe ++ lieux 
     
