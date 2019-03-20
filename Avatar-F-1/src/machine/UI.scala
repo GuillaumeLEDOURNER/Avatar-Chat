@@ -27,7 +27,7 @@ object UI {
        
       val list = new ListView[String]() {
         listData = buffer
-        fixedCellWidth = 450
+        fixedCellWidth = 800
         fixedCellHeight = 30
         background = new Color(255, 255, 255);
       }
@@ -64,7 +64,7 @@ object UI {
           background = new Color(255, 255, 255);
           contents += new ScrollPane(list) {
             background = new Color(255, 255, 255);
-            preferredSize = new Dimension(500, 350)
+            preferredSize = new Dimension(840, 350)
           }
         }
         contents += new BoxPanel(Orientation.Horizontal) {
@@ -77,7 +77,7 @@ object UI {
       centerOnScreen()
       open()
     }
-    frame.size = new Dimension(540,500)  
+    frame.size = new Dimension(850,500)  
   }
 }
 
