@@ -58,7 +58,6 @@ object Analysis
           }
         }
       }
-      println(r.rawInput)
       if(hasSearch) {
         val keys = Data.getKeys()
         for(k <- keys) {
