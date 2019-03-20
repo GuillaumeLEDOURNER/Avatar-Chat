@@ -1,10 +1,12 @@
 package machine
 
 object MachineImpl extends MachineDialogue{
+  
   override def ask(s:String):List[String]=
   {
       val request = new Request(s)
       Analysis.analyse(request);
+      println(request.results)
       request.results
   }
   

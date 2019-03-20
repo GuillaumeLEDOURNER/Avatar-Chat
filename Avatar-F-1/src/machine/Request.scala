@@ -11,5 +11,9 @@ class Request(rawIn:String)
    var keywords:List[String] = List();
    
    var results:List[String]= List();
+  
+   override def toString() : String = {
+      "Request : " + rawInput
+   }
 
-}
+} 

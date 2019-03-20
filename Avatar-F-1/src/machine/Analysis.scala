@@ -4,89 +4,57 @@ import java.util.Arrays
 
 object Analysis 
 {
-  
-  
+    val searchKeywords = List("chercher", "cherche", "aller", "trouver", "recherche")
+    var hasSearch = false
     
-    protected val verbe = List("chercher","cherche","cherchons","trouve","aller","rendre","trouver","allons","passer","trouvons"
-        ,"marcher","bouger") 
-    protected val lieux = List("gare","théâtre","mairie","hôtel","ville","rennes","bretagne","sncf","tnb","paillette","national","place")
-    
-    protected val mairie = List("marie","hotel","ville","place","rennes")
-    protected var m = 0 
-    protected val paillete = List("paillete","théâtre")
-    protected var p = 0
-    protected val TNB = List("théâtre","national","tnb","bretagne")
-    protected var t = 0
-    protected val gare = List("gare","sncf")
-    protected var g = 0
-
-    protected val r = new Request("hotel de ville")
-    protected val l = verbe ++ lieux 
-    
-    
-    def addtokeyword(r: Request) = {
-      val a = r.rawInput.split(" ")
-      for (i <- a){
-        for(j <- lieux){
-           if(i.substring(0,2)=="l'"){
-             val t = i.substring(2,i.length()).toLowerCase()
-             if(MyCorrection.distancedeHamming(t, j) && !r.keywords.contains(j))r.keywords = r.keywords:+t
-           }
-           else {
-            if(MyCorrection.distancedeHamming(i, j) && !r.keywords.contains(j)){
-               r.keywords = r.keywords:+j
-            }
-           }
-        }
-      }
+    def addtokeyword(r: Request) = 
+    {
+     
     }
     
     
-    def checkkeyword(s: List[String]): Unit = {
-      for(x <- s) {
-      if(x.toLowerCase()=="théâtre"){
-        if(s.contains("paillette"))p+=1
-        else if(s.contains("national") && s.contains("bretagne")) t+=1
-      }
-      else{
-        if (mairie.contains(x)) m=m+1
-        if (TNB.contains(x))t=t+1
-        if (gare.contains(x))g=g+1
-        }
-      }
-      println("m : " +m)
-      println("t : " +t)
-      println("g : " +g)
-      println("p : " +p)
+    def checkkeyword(s: List[String]): Unit =
+    {
+    
       
     }
     
-    
-    def analyse(r:Request) = {
-      addtokeyword(r)
-      if (r.keywords.isEmpty) r.valid = false
-      else {
-        checkkeyword(r.keywords)
-        r.valid = true
-        
-        if(m>=2 && (p+t+g==0)){
-          r.valid = true
-          r.results ++ "Place de la mairie"
+    def analyse(r: Request): Unit = 
+    {
+      hasSearch = false
+      println(r.toString)
+      val words = r.rawInput.split(" ")
+      for(w <- words) {
+        for(s <- searchKeywords) {
+          if(MyCorrection.distancedeHamming(w, s)) {
+            println( w + " == " + s)
+            hasSearch = true
+          }
         }
-        else if(p>0 && (m+t+g==0)){
-          r.valid = true
-          r.results ++"2, rue du Pré de Bris"
-        }
-        else if(t>0 &&(p+m+g==0)){
-          r.valid = true
-          r.results ++"1, rue Saint-Hélier"
-        }
-        else if(g>0 &&(p+m+t==0)){
-          r.valid = true
-          r.results ++"19, place de la gare"
-        }
-        else r.valid = false
       }
+      if(hasSearch) {
+        val keys = Data.getKeys()
+        for(k <- keys) {
+          for(w <- words) {
+            println("kword : " + k)
+            val keywords = k.split(" ")
+            for(kw <- keywords) {
+              if(kw.length > 2) {
+                println("kword splitted filtered : " + kw)
+                println("Checking " + w + " with " + kw)
+                if(MyCorrection.distancedeHamming(w, kw)) {
+                  println("Found : " + Data.getValue(k))
+                  r.results ::= Data.getValue(k)
+                  return
+                }
+              }
+            }
+          }
+        }
+      } else {
+        println("No search keyword found")
+      }
+      
     }
     
     

@@ -43,8 +43,12 @@ object UI {
           case ButtonClicked(_) => {
             this.publish(SomethingHappened())
             list.listData = buffer += "<html><font color='black'>Moi : " + inputField.text + "</font></html>"
-            val results= MachineImpl.ask(inputField.text);
-            list.listData = buffer += "<html><font color='black'>Avatar : " +results + "</font></html>"
+            val results = MachineImpl.ask(inputField.text);
+            var parsedResults = ""
+            for(r <- results) {
+              parsedResults += r + " "
+            }
+            list.listData = buffer += "<html><font color='black'>Avatar : " + parsedResults + "</font></html>"
             inputField.text = ""
           }
         }
@@ -69,7 +73,7 @@ object UI {
       centerOnScreen()
       open()
     }
-    frame.size = new Dimension(500,500)  
+    frame.size = new Dimension(540,500)  
   }
 }
 
