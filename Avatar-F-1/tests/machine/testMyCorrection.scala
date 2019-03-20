@@ -23,7 +23,7 @@ class TestCorrection {
   
   @Test
   def test2_DistanceTaillesDifferentes{
-    assertEquals(true,MyCorrection.distancedeHamming("hotl","hotel"))
+    assertEquals(true,MyCorrection.distancedeHamming("hotl","hotel"))//test
     assertEquals(false,MyCorrection.distancedeHamming("htl","hotel"))
     
     assertEquals(true,MyCorrection.distancedeHamming("avon","avion"))
