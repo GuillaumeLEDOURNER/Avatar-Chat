@@ -63,7 +63,7 @@ object Analysis
                 if(MyCorrection.distancedeHamming(w, kw)) 
                 {
                   val det=  getDeterminant(w)
-                  r.results ::= det +" "+ w +" se trouve "+ Data.getValue(k)
+                  r.results ::= det +" "+ kw +" se trouve "+ Data.getValue(k)
                   return
                 }
               }
