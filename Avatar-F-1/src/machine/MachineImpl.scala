@@ -7,7 +7,7 @@ object MachineImpl extends MachineDialogue{
       val request = new Request(s)
       Analysis.analyse(request);
       //println(request.results)
-      request.results
+      request.results.reverse
   }
   
   // Pour la partie test par le client

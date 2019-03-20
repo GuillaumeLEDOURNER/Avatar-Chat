@@ -49,18 +49,22 @@ object Analysis
         }
       }*/
       val words = r.rawInput.split(" ")
+      for(w <- words) {
+        if(MyCorrection.distancedeHamming(w, "bonjour")) 
+        {
+          r.results ::= "Bonjour"
+          if(words.length == 1) {
+            return
+          }
+        }
+      }
       println(r.rawInput)
       if(hasSearch) {
         val keys = Data.getKeys()
         for(k <- keys) {
           for(w <- words) {
-            if(MyCorrection.distancedeHamming(w, "bonjour")) 
-            {
-              r.results ::= "Bonjour"
-            }
             val keywords = k.split(" ")
             r.keywords = keywords.toList;
-            
             for(kw <- keywords) {
               if(kw.length > 2) {
                 //println("Checking : " + w + " with " + kw)
@@ -75,12 +79,12 @@ object Analysis
             }
           }
         }
-        r.results ::= "Je ne comprend pas votre demande"
-        println(r.results)
-        return
       } else {
         println("No search keyword found")
       }
+      r.results ::= "Je ne comprends pas votre demande"
+      println(r.results)
+      return
       
     }
     
