@@ -2,6 +2,8 @@ package machine
 
 object MachineImpl extends MachineDialogue{
   
+  var counter = 0
+  
   override def ask(s:String):List[String]=
   {
       val request = new Request(s)
@@ -16,11 +18,12 @@ object MachineImpl extends MachineDialogue{
   }
   
   def test(l:List[String]):List[String] = {
-    var result = List[String]()
-    for(request <- l) {
-      result = result ++ ask(request)
-    }
-    println(result)
-    result
+      var result = List[String]()
+      for(request <- l) {
+        println(request)
+        result = result ++ ask(request)
+      }
+      println(result)
+      result
   }
 }

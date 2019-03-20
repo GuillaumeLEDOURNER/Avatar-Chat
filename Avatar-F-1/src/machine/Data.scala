@@ -26,6 +26,7 @@ object Data
   {
      data.keys.toArray
   }
+  
   def getValue(key:String) : String = // récupère l'adresse d'un lieu a partir de son nom 
   {
     var result = "";
@@ -38,5 +39,14 @@ object Data
      }
      
      result // adresse 
+  }
+  
+  def getName(key : String) : String = {
+    val index = key.indexOf(",")
+    if(index != -1) {
+      return key.substring(0, index)
+    } else {
+      return key
+    }
   }
 }

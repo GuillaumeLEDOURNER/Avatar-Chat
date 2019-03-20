@@ -65,11 +65,11 @@ object Analysis
             r.keywords = keywords.toList;
             for(kw <- keywords) {
               if(kw.length > 2) {
-                //println("Checking : " + w + " with " + kw)
+                println("Checking : " + w + " with " + kw)
                 if(MyCorrection.distancedeHamming(w, kw)) 
                 {
                   //val det = getDeterminant(w)
-                  r.results ::= "L'adresse de " + k +" est : "+ Data.getValue(k)
+                  r.results ::= "L'adresse de " + Data.getName(k) +" est : "+ Data.getValue(k)
                   println(r.results)
                   return
                 }
