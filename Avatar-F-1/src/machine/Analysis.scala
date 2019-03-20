@@ -31,7 +31,6 @@ object Analysis
             }
          }
          ""
-         
     }
     
     def analyse(r: Request): Unit = 
