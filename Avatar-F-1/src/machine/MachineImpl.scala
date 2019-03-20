@@ -6,11 +6,21 @@ object MachineImpl extends MachineDialogue{
   {
       val request = new Request(s)
       Analysis.analyse(request);
-      println(request.results)
+      //println(request.results)
       request.results
   }
   
   // Pour la partie test par le client
-  def reinit= ???
-  def test(l:List[String]):List[String]= ???
+  def reinit = {
+    
+  }
+  
+  def test(l:List[String]):List[String] = {
+    var result = List[String]()
+    for(request <- l) {
+      result = result ++ ask(request)
+    }
+    println(result)
+    result
+  }
 }

@@ -19,6 +19,7 @@ object Data
         data = data + (splitedLine(0) -> splitedLine(1))
       }
     }
+    println(data)
   }
   
   def getKeys() : Array[String] =  // Récupère les clées de la map (qui correspondent au nom du lieu)
