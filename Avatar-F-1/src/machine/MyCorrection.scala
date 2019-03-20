@@ -43,7 +43,9 @@ object MyCorrection extends Correction {
    * @return le mot normalisé
    */
   private def normalize(exp : String): String ={
-    Normalizer.normalize(exp,Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").toLowerCase()
+    var e = Normalizer.normalize(exp,Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").toLowerCase()
+    e = e.replaceAll("\\?", "")
+    e
   }
   
   /**

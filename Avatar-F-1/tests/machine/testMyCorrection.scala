@@ -52,6 +52,8 @@ class TestCorrection {
   
    assertEquals(false, MyCorrection.distancedeHamming("americaine", "vie"))
    assertEquals(false, MyCorrection.distancedeHamming("gare", "tnb"))
+   
+   assertEquals(true, MyCorrection.distancedeHamming("mairie?", "mairie"))
   }
   
 }
