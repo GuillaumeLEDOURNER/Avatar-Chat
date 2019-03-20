@@ -28,7 +28,7 @@ object UI {
       val list = new ListView[String]() {
         listData = buffer
         fixedCellWidth = 450
-        fixedCellHeight = 20
+        fixedCellHeight = 30
         background = new Color(255, 255, 255);
       }
       
@@ -44,11 +44,15 @@ object UI {
             this.publish(SomethingHappened())
             list.listData = buffer += "<html><font color='black'>Moi : " + inputField.text + "</font></html>"
             val results = MachineImpl.ask(inputField.text);
-            var parsedResults = ""
+            var isFirst = true
             for(r <- results) {
-              parsedResults += r + " "
+              if(isFirst) {
+                list.listData = buffer += "<html><font color='black'>Avatar : " + r + "</font></html>"
+              } else {
+                list.listData = buffer += "<html><font color='black'>" + r + "</font></html>"
+                isFirst = false
+              }
             }
-            list.listData = buffer += "<html><font color='black'>Avatar : " + parsedResults + "</font></html>"
             inputField.text = ""
           }
         }
