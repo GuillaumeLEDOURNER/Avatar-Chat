@@ -45,6 +45,7 @@ object MyCorrection extends Correction {
   private def normalize(exp : String): String ={
     var e = Normalizer.normalize(exp,Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").toLowerCase()
     e = e.replaceAll("\\?", "")
+    e = e.replaceAll("\\,", "")
     e
   }
   
