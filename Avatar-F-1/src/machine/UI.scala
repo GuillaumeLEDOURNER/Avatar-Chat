@@ -15,7 +15,6 @@ object UI {
    
   var buffer = ListBuffer("<html><font color='green'>Avatar : Bienvenue sur le chat !</font></html>")
   
- 
   
   val randomizer = new Random
   
@@ -59,11 +58,11 @@ object UI {
       }
      
       contents = new BoxPanel(Orientation.Vertical) {
-        background = new Color(255, 255, 255);
+        background = new Color(255, 255, 255)
         contents += new FlowPanel() {
-          background = new Color(255, 255, 255);
+          background = new Color(255, 255, 255)
           contents += new ScrollPane(list) {
-            background = new Color(255, 255, 255);
+            background = new Color(255, 255, 255)
             preferredSize = new Dimension(840, 350)
           }
         }

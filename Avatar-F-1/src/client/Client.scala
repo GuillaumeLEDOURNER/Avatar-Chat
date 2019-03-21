@@ -5,10 +5,10 @@ import automaticTester.TestAvatar
 
 object Client extends App {
 
-	  UI.init()
+	  UI.init
 
-	Data.openFile()
-	TestAvatar.check(MachineImpl)
+  	Data.openFile
+  	XMLSearch.init
+  	//TestAvatar.check(MachineImpl)
 	
-
 }
