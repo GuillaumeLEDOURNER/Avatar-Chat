@@ -1,9 +1,11 @@
 package machine
 
 object Possibilities {
-  def recherche(r :Request){
     var plusieurs = false
     var nbReponses = 0
+  
+  def recherche(r :Request){
+   
     var listReponses : List[String] = List()
     val words = r.rawInput.split(" ") 
     val keys = Data.getKeys()
@@ -20,14 +22,17 @@ object Possibilities {
     			}
     			
     		}
-    		var i = nbReponses
-    		while(nbReponses != 0){
-    		  if(i == nbReponses){
+    		var i = 0
+    		while(nbReponses != 0 && i<=nbReponses){
+    		  if(i == 0){
     		    r.results ::= "J'ai " + nbReponses + " réponses possibles :"
+    		    i=i+1
+    		  } else {
+    		  listReponses ::= i + ") " +Data.getName(k) //liste des requètes numérotées
+    		  i=i+1
     		  }
-    		  listReponses ::= nbReponses + ") " +Data.getName(k) //liste des requètes numérotées
-    		  nbReponses -=1
     		}
+    		
     		for(lr <- listReponses){
     		  r.results ::= lr
     		}
@@ -35,4 +40,22 @@ object Possibilities {
     	}
     }
   }
+    
+  def choose(r: Request): Unit = {
+    val words = r.rawInput.split(" ")
+    var choice = false
+    var i = 1
+    var index = 0
+    while(i <= nbReponses && !choice) {
+    if (words.contains(i)) {
+      index = i
+      choice = true
+    }
+    i=i+1
+    }
+    r.results = List("L'adresse de " + Data.getName(r.results(index).substring(3, r.results(index).length())) +" est : "+ Data.getValue(r.results(index).substring(3, r.results(index).length())))
+                  
+  }
+  
+
 }
