@@ -29,7 +29,8 @@ object Analysis
           for(kw <- keywords) {
             if(kw.length > 2) {
               println("Checking : " + w + " with " + kw)
-              if(!MyCorrection.distancedeHamming(w, "theatre")) {
+              if(!MyCorrection.distancedeHamming(w, "theatre")) 
+              {
                 if(MyCorrection.distancedeHamming(w, kw)) 
                 {
                   r.results ::= "L'adresse de " + Data.getName(k) +" est : "+ Data.getValue(k)
