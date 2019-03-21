@@ -1,7 +1,11 @@
 package machine
 
 object Possibilities {
+  
+  private var nbResponses = 0
+  
   def recherche(r :Request){
+    
     var plusieurs = false
     val words = r.rawInput.split(" ") 
     val keys = Data.getKeys()
@@ -20,4 +24,14 @@ object Possibilities {
     	}
     }
   }
+  
+  //def showResults(r: Request ,l: List[String]): List[String] =  {
+      //if (nbReponses
+  }
+  
+  
+  
+  
+  
+  
 }
