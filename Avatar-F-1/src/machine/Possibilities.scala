@@ -3,10 +3,10 @@ package machine
 object Possibilities {
     var plusieurs = false
     var nbReponses = 0
-  
+    var listReponses : List[String] = List()
   def recherche(r :Request){
    
-    var listReponses : List[String] = List()
+    
     val words = r.rawInput.split(" ") 
     val keys = Data.getKeys()
     for(k <- keys) { //tous les mots clés de Data
@@ -53,7 +53,7 @@ object Possibilities {
     }
     i=i+1
     }
-    r.results = List("L'adresse de " + Data.getName(r.results(index).substring(3, r.results(index).length())) +" est : "+ Data.getValue(r.results(index).substring(3, r.results(index).length())))
+    r.results = List("L'adresse de " + Data.getName(listReponses(index).substring(3, listReponses(index).length())) +" est : "+ Data.getValue(r.results(index).substring(3, r.results(index).length())))
                   
   }
   
