@@ -12,6 +12,8 @@ object XMLSearch {
   
   var data = Map[String, String]()
   
+  var bannedKeywords = List[String]()
+  
   def init() {
     var file = XML.loadFile(pathToFile)
     
@@ -29,12 +31,42 @@ object XMLSearch {
     val addressesNames = for {
       addresses <- tree \\ "addresses"
       names = addresses \\ "name"
-      txt = (for(n <- names) yield n.text).mkString
+      numbers = addresses \\ "number"
+      txt = (for(n <- numbers) yield n.text).mkString + ", " + (for(n <- names) yield n.text).mkString
     } yield { txt }
     
     values = addressesNames.toList
-    
+    println("Salut")
     data = (keys zip values)(breakOut): Map[String, String]
+    
+    checkForKeywordsToBan()
+  }
+  
+  def checkForKeywordsToBan() {
+    
+    for(key <- data.keys)   
+    {
+    
+       for(word <- key.split(" "))
+       {
+          var count = 0
+          for(keyCheck <- data.keys)
+          {
+            if(keyCheck.contains(word))
+            {
+              count += 1
+            }
+          }
+          if(count > 1)
+          {
+            if(!bannedKeywords.contains(word)) {
+              bannedKeywords ::= word
+            }
+          }
+       }
+  
+    }
+    print(bannedKeywords)
   }
   
   def printAllCities(node : NodeSeq) {
@@ -52,7 +84,12 @@ object XMLSearch {
      {
        if (pair._1 == key) // pair._1  = clée (nom du lieu)
        {
-          result = pair._2 // pair._2 = valeur (adresse du lieu)
+           val index = pair._2.indexOf(',', pair._2.indexOf(',')+1)
+          if(index != -1) {
+            result = pair._2.substring(0, index)
+          } else {
+            result = pair._2
+          }
        }
      }
      
