@@ -1,15 +1,10 @@
 package machine
 
 import scala.collection.JavaConversions._
-
-import javax.sound.sampled.AudioInputStream
 import marytts.LocalMaryInterface
-import marytts.MaryInterface
 import marytts.exceptions.MaryConfigurationException
 import marytts.exceptions.SynthesisException
 import marytts.util.data.audio.AudioPlayer
-
-import marytts.language.fr.FrenchConfig
 
 object SpeechSynthetizer {
     val marytts = new LocalMaryInterface
