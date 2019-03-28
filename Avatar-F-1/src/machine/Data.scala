@@ -13,12 +13,13 @@ object Data
     // Source.fromFile permet de d'ouvrir un fichier
     for(line <- Source.fromFile(pathToFile).getLines) // récupère toute les lignes du fichier sous forme d'un tableau de String
     {
-      println(line) // affiche la ligne actuelle
+     
       val splitedLine = line.split(';') // on coupe la ligne en fonction du caractère ";"
       if(splitedLine.size >= 2) {
         data = data + (splitedLine(0) -> splitedLine(1))
       }
     }
+
   }
   
   def getKeys() : Array[String] =  // Récupère les clées de la map (qui correspondent au nom du lieu)

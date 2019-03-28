@@ -7,8 +7,9 @@ object MachineImpl extends MachineDialogue{
   override def ask(s:String):List[String]=
   {
       val request = new Request(s)
-      Analysis.analyse(request);
-      //println(request.results)
+      if (Traduction.traduct(request))
+        Analysis.analyse(request);
+     
       request.results.reverse
   }
   

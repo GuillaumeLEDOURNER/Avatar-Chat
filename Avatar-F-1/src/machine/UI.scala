@@ -15,6 +15,7 @@ object UI {
    
   var buffer = ListBuffer("<html><font color='green'>Avatar : Bienvenue sur le chat !</font></html>")
   
+ 
   
   val randomizer = new Random
   
@@ -26,7 +27,7 @@ object UI {
        
       val list = new ListView[String]() {
         listData = buffer
-        fixedCellWidth = 800
+        fixedCellWidth = 450
         fixedCellHeight = 30
         background = new Color(255, 255, 255);
       }
@@ -58,12 +59,12 @@ object UI {
       }
      
       contents = new BoxPanel(Orientation.Vertical) {
-        background = new Color(255, 255, 255)
+        background = new Color(255, 255, 255);
         contents += new FlowPanel() {
-          background = new Color(255, 255, 255)
+          background = new Color(255, 255, 255);
           contents += new ScrollPane(list) {
-            background = new Color(255, 255, 255)
-            preferredSize = new Dimension(840, 350)
+            background = new Color(255, 255, 255);
+            preferredSize = new Dimension(500, 350)
           }
         }
         contents += new BoxPanel(Orientation.Horizontal) {
@@ -76,7 +77,7 @@ object UI {
       centerOnScreen()
       open()
     }
-    frame.size = new Dimension(850,500)  
+    frame.size = new Dimension(540,500)  
   }
 }
 
