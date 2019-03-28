@@ -1,6 +1,6 @@
 package machine
 import scala.io.Source
-class RechercheWeb {
+object RechercheWeb {
 
   var key = ""
 
@@ -124,8 +124,15 @@ class RechercheWeb {
    
    private def extraction(liste : List[String]) : String = { 
      var l = liste.toString()
+     
     var l2 = l.split("Text")
-     MyCorrection.normalize(l2.last.toString())
+    if(l.isEmpty() || l.toString().equals("List()")){
+     "Je ne comprends pas votre demande"
+    }
+    else{
+      println(l)
+      MyCorrection.normalize(l2.last.toString())
+    }
      /*liste match {
        case Nil => ""
        case List(a) => a match {
@@ -140,16 +147,11 @@ class RechercheWeb {
      extraction(filtreAdresse(FetchSearchPage(UrlRestaurant(filtreAnnonce(FetchSearchPage(UrlRecherche(s)))))))
    }
         
-
-
 }
 
  object Truc extends App {
-    val r = new RechercheWeb
-       //println(MyCorrection.normalize("la-tomate"))
     
-    println(r.rechercheWeb("je cherche la pizzeria la tomate"))
-    
+    println(RechercheWeb.rechercheWeb("je cherche une bonne pizzeria"))
    
    
  }
