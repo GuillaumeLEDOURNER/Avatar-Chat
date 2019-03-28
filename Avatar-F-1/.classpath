@@ -9,5 +9,20 @@
 	<classpathentry kind="lib" path="lib/scala-swing_2.12.0-M5-2.0.0-M2.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="lib/scala-xml_2.12-1.0.6.jar"/>
+	<classpathentry kind="lib" path="/private/student/7/67/18009067/Documents/tts/voice-upmc-pierre-hsmm-5.1.jar"/>
+	<classpathentry kind="lib" path="/private/student/7/67/18009067/Documents/tts/voice-istc-lucia-hsmm-5.1.jar"/>
+	<classpathentry kind="lib" path="/private/student/7/67/18009067/Documents/tts/voice-dfki-pavoque-neutral-hsmm-5.1.jar"/>
+	<classpathentry kind="lib" path="/private/student/7/67/18009067/Documents/tts/voice-cmu-slt-hsmm-5.1.2.jar"/>
+	<classpathentry kind="lib" path="/private/student/7/67/18009067/Documents/tts/marytts-runtime-5.1.2-jar-with-dependencies.jar"/>
+	<classpathentry kind="lib" path="/private/student/7/67/18009067/Documents/tts/marytts-lang-tr-5.1.2.jar"/>
+	<classpathentry kind="lib" path="/private/student/7/67/18009067/Documents/tts/marytts-lang-te-5.1.2.jar"/>
+	<classpathentry kind="lib" path="/private/student/7/67/18009067/Documents/tts/marytts-lang-sv-5.1.2.jar"/>
+	<classpathentry kind="lib" path="/private/student/7/67/18009067/Documents/tts/marytts-lang-ru-5.1.2.jar"/>
+	<classpathentry kind="lib" path="/private/student/7/67/18009067/Documents/tts/marytts-lang-it-5.1.2.jar"/>
+	<classpathentry kind="lib" path="/private/student/7/67/18009067/Documents/tts/marytts-lang-fr-5.1.2.jar"/>
+	<classpathentry kind="lib" path="/private/student/7/67/18009067/Documents/tts/marytts-lang-en-5.1.2.jar"/>
+	<classpathentry kind="lib" path="/private/student/7/67/18009067/Documents/tts/marytts-lang-de-5.1.2.jar"/>
+	<classpathentry kind="lib" path="/private/student/7/67/18009067/Documents/tts/marytts-client-5.1.2-jar-with-dependencies.jar"/>
+	<classpathentry kind="lib" path="/private/student/7/67/18009067/Documents/tts/icu4j-54.1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

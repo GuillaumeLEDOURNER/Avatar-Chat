@@ -4,15 +4,18 @@ object MachineImpl extends MachineDialogue{
   
   var counter = 0
   
-  override def ask(s:String):List[String]=
+  override def ask(s:String):List[String] =
   {
       val request = new Request(s)
+      
+    
+      
       if (Traduction.traduct(request))
         Analysis.analyse(request);
      
-      request.results.reverse
+     request.results.reverse
   }
-  
+    
   // Pour la partie test par le client
   def reinit = {
     

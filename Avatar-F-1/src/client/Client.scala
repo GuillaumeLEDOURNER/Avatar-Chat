@@ -9,8 +9,8 @@ object Client extends App
 	  UI.init()
 	  Traduction.init()
 	  Data.openFile()
-	   XMLSearch.init()
-	 //TestAvatar.check(MachineImpl)
+	  XMLSearch.init()
+	 TestAvatar.check(MachineImpl)
 	
 
 }

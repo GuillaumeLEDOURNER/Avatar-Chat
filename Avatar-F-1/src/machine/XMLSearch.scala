@@ -66,7 +66,7 @@ object XMLSearch {
        }
   
     }
-    print(bannedKeywords)
+   // print(bannedKeywords)
   }
   
   def printAllCities(node : NodeSeq) {

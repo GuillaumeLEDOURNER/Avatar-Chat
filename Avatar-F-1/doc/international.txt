@@ -51,7 +51,6 @@ I found XXX answers
 What is your choice?
 restaurant, creperie, pizzeria
 
-
 Espagnol:
 si
 no

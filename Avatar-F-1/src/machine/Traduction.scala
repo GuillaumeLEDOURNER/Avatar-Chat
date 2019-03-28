@@ -39,14 +39,17 @@ object Traduction
   def detectLanguage(rawInput:String): Language.Value = 
   {
     
-    
+      val splitted = rawInput.split(" ")
+      
+      for (w <- splitted)
+      {
       for (category <- dictionary)
       {
            for (pair <- category._2)
            {
                for (word <- pair._2)
                {
-                 if (MyCorrection.distancedeHamming(rawInput, word))
+                 if (w.toLowerCase() == word.toLowerCase())
                  {
                      if (currentLanguage != pair._1)
                      {
@@ -58,6 +61,7 @@ object Traduction
                }
                
            }
+      }
       }
       currentLanguage
   }
@@ -79,6 +83,8 @@ object Traduction
   }
   def traduct(r:Request) : Boolean =
   {
+    
+   
     if (Traduction.askingLanguage != null)
       {
             if (MyCorrection.distancedeHamming(r.rawInput, Traduction.expressionBase(Traduction.askingLanguage)(0)))
@@ -91,7 +97,7 @@ object Traduction
             }
             else
             {  
-               Traduction.askingLanguage = Traduction.exploreLanguage(Traduction.askingLanguage)
+                Traduction.askingLanguage = Traduction.exploreLanguage(Traduction.askingLanguage)
                 r.results ::= Traduction.expressionBase(Traduction.askingLanguage)(4);
                  return false
            }
@@ -100,11 +106,12 @@ object Traduction
       
       
       val detectedLanguage = Traduction.detectLanguage(r.rawInput) 
-      if (detectedLanguage != Traduction.currentLanguage)
+      if (detectedLanguage != Traduction.currentLanguage )
       {
        
          r.results ::= Traduction.expressionBase(detectedLanguage)(4)
          Traduction.askingLanguage = detectedLanguage;
+         
          return false
       }
       

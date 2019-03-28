@@ -40,7 +40,7 @@ object Analysis
               if(!MyCorrection.distancedeHamming(w, "theatre")) {
                 if(MyCorrection.distancedeHamming(w, kw)) 
                 {
-                  r.results ::= Traduction.getAdressString( Data.getName(k))  + " "+Data.getValue(k)
+                  r.results ::= Traduction.getAdressString( Data.getName(k))  + " : "+Data.getValue(k)
                
                   return
                 }
@@ -49,7 +49,8 @@ object Analysis
           }
         }
       }
-      r.results ::= Traduction.expressionBase(Traduction.currentLanguage)(3)
+     
+      r.results ::= Traduction.expressionBase(Traduction.currentLanguage)(3)  // je ne comprend pas votre demande
       return
       
     }
