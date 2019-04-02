@@ -17,8 +17,10 @@ object MachineImpl extends MachineDialogue{
   }
     
   // Pour la partie test par le client
-  def reinit = {
-    
+  def reinit = 
+  {
+     Traduction.currentLanguage = Traduction.Language.Francais
+     Traduction.askingLanguage = null
   }
   
   def test(l:List[String]):List[String] = {
