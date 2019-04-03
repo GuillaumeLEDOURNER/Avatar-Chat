@@ -4,6 +4,8 @@ import java.util.Arrays
 
 object Analysis 
 {
+    var isWaitingForInput = false
+  
    
     def addtokeyword(r: Request) = 
     {
@@ -11,7 +13,11 @@ object Analysis
     }
     
     def analyse(r: Request): Unit = 
-    {      
+    {     
+      if(isWaitingForInput && Possibilities.choose(r)) {
+        return
+      }
+      
       val words = r.rawInput.split(" ")
       for(w <- words) 
       {
@@ -26,8 +32,6 @@ object Analysis
                 }
           }
          
-  
-        
       }
       val keys = Data.getKeys()
       for(k <- keys) {
@@ -49,8 +53,12 @@ object Analysis
           }
         }
       }
-     
-      r.results ::= Traduction.expressionBase(Traduction.currentLanguage)(3)  // je ne comprend pas votre demande
+      if(!Possibilities.recherche(r)) {
+        isWaitingForInput = false
+        r.results ::= Traduction.expressionBase(Traduction.currentLanguage)(3)  // je ne comprend pas votre demande
+      } else {
+        isWaitingForInput = true
+      }
       return
       
     }

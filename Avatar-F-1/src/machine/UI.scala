@@ -28,7 +28,7 @@ object UI {
       val list = new ListView[String]() {
         listData = buffer
         fixedCellWidth = 450
-        fixedCellHeight = 30
+        fixedCellHeight = 50
         background = new Color(255, 255, 255);
       }
       

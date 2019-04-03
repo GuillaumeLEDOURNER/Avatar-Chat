@@ -21,6 +21,10 @@ object MachineImpl extends MachineDialogue{
   {
      Traduction.currentLanguage = Traduction.Language.Francais
      Traduction.askingLanguage = null
+     Possibilities.responses = List()
+     Possibilities.listReponses = List()
+     Possibilities.isWaitingForInput = false
+     Possibilities.nbReponses = 0
   }
   
   def test(l:List[String]):List[String] = {

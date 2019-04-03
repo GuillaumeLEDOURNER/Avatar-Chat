@@ -40,6 +40,8 @@ object XMLSearch {
     data = (keys zip values)(breakOut): Map[String, String]
     
     checkForKeywordsToBan()
+    
+ 
   }
   
   def checkForKeywordsToBan() {
