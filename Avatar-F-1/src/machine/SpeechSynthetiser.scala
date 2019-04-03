@@ -10,25 +10,34 @@ object SpeechSynthetizer {
     val marytts = new LocalMaryInterface
     val ap = new AudioPlayer
    
-    val voices = List("dfki-pavoque-neutral-hsmm", "umc-pierre-hsmm", "istc-lucia-hsmm", "cmu-slt-hsmm")
+    val voices = List("dfki-pavoque-neutral-hsmm", "upmc-pierre-hsmm", "istc-lucia-hsmm", "cmu-slt-hsmm")
    
     def voice() {
       try {
-        marytts.setVoice(voices(0))
+        marytts.setVoice(voices(1))
       } catch {
         case e: MaryConfigurationException => println(e)
       }
     }
    
-    def say(input : String) {
-      try {
+     def say(input : String) {
+     
+       
+       try {
         val audio = marytts.generateAudio(input)
         ap.setAudio(audio)
         ap.start()
         ap.join()
+        
+           
       } catch {
         case e: SynthesisException => println(e)
       }
+      finally
+      {
+         
+      }
+ 
     }
    
     def getVoices() : java.util.Set[String] = {

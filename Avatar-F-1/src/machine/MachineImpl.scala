@@ -13,6 +13,7 @@ object MachineImpl extends MachineDialogue{
       if (Traduction.traduct(request))
         Analysis.analyse(request);
      
+      SpeechSynthetizer.say(request.results(0))
      request.results.reverse
   }
     

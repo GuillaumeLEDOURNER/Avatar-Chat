@@ -123,6 +123,13 @@ object Traduction
     
     exp.replaceAll("XXX", value)
   }
+  def getNbResponses(number:Int) : String = 
+  {
+    val exp = expressionBase(Traduction.currentLanguage)(6)
+    
+    exp.replaceAll("XXX", number.toString())
+   
+  }
   def init():Unit = 
   {
     currentLanguage = Language.Francais

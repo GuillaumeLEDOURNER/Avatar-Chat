@@ -12,7 +12,7 @@ object Possibilities {
   var listReponses : List[String] = List()
   var recherche = ""
   var responses : List[String] = List()
-  val L : List[String] = List("je","de", "une", "ou", "le")
+  val L : List[String] = List("je","de", "une", "ou", "le","des","la","est")
   XMLSearch.init()
 
   def recherche(r :Request) : Boolean = {
@@ -48,7 +48,7 @@ object Possibilities {
     		breakable {
       		while(nbReponses != 0 && i<=nbReponses){
       		  if(i == 0){
-      		    r.results ::= "J'ai " + nbReponses + " réponses possibles :"
+      		    r.results ::= Traduction.getNbResponses(nbReponses) 
       		    i=i+1
       		  } else {
       		    for(k<-listReponses)  {
@@ -66,7 +66,7 @@ object Possibilities {
     		}
     		
     		if(nbReponses > 0) {
-    		  r.results ::= "Quel est votre choix?"
+    		  r.results ::= Traduction.expressionBase(Traduction.currentLanguage)(7)
     		  isWaitingForInput = true
     		  return true
     		} else {
@@ -86,19 +86,7 @@ object Possibilities {
           return false
         }
       }
-      /*val words = r.rawInput.split(" ")
-      var choice = false
-      var i = 1
-      var index = 0
-      while(i <= nbReponses && !choice) {
-        if (words.contains(i.toString())) {
-          index = i
-          choice = true
-        }
-        i=i+1
-      }
-     // println(index)
-      index = index - 1*/
+     
       if (index >= responses.length)
       {
          isWaitingForInput = false;
@@ -108,7 +96,7 @@ object Possibilities {
       val adresse = XMLSearch.getValue(responses(index).substring(3, responses(index).length()))
       
       r.results ::= Traduction.getAdressString(name) + " " +adresse
-     
+      
       
       isWaitingForInput = false
       return true
