@@ -12,19 +12,20 @@ object Possibilities {
   var listReponses : List[String] = List()
   var recherche = ""
   var responses : List[String] = List()
+  var tempList : List[String] = List()
   val L : List[String] = List("je","de", "une", "ou", "le","des","la","est")
   XMLSearch.init()
 
   def recherche(r :Request) : Boolean = {
    
 		responses = List()
-		nbReponses = 0
-		listReponses = List()
-    		
+		nbReponses = 0   		
     val words = r.rawInput.split(" ") 
     val keys = XMLSearch.getKeys()
-    for(k <- keys) { //tous les mots clés de Data
+    listReponses = keys.toList
+    //je cherche la piscine SG et la piscine Gayeulles 
     	for(w <- words) { //tous les mots de la requète  
+    	   for(k <- keys) { //tous les mots clés de Data
     			val keywords = k.split(" ")
     			var j = 0
     			var found = false
@@ -33,13 +34,15 @@ object Possibilities {
     			if(w.toLowerCase()==keywords(j).toLowerCase() && !L.contains(w)) {
     			  //println("WORD: "+w+ " AND " + keywords(j).toLowerCase())
     			  nbReponses +=1
-    			  listReponses = k::listReponses
+    			  tempList = k::tempList
     			  found=true
     			  //println(nbReponses)
     			  }
     			j=j+1
     			 }
     		}
+    	   listReponses = processList(listReponses,tempList)
+    	   
     }
     //println(nbReponses)
     //println(listReponses)
@@ -105,6 +108,15 @@ object Possibilities {
     false
   }
 
-  
+  def processList(l1: List[String],l2: List[String]): List[String] = {
+    if (l2.isEmpty) l1
+    else {
+      l1 match {
+        case Nil => Nil
+        case h::t => if (l2.contains(h)) h::processList(t,l2)
+                     else processList(t,l2)
+      }
+    }
+  }
 
 }

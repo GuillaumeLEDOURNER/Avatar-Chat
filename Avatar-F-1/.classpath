@@ -26,5 +26,20 @@
 	<classpathentry kind="lib" path="/private/student/7/67/18009067/Documents/tts/marytts-lang-de-5.1.2.jar"/>
 	<classpathentry kind="lib" path="/private/student/7/67/18009067/Documents/tts/marytts-client-5.1.2-jar-with-dependencies.jar"/>
 	<classpathentry kind="lib" path="/private/student/7/67/18009067/Documents/tts/icu4j-54.1.1.jar"/>
+	<classpathentry kind="lib" path="/share/l2ie/gen/TPavatar/libTTS/icu4j-54.1.1.jar"/>
+	<classpathentry kind="lib" path="/share/l2ie/gen/TPavatar/libTTS/marytts-client-5.1.2-jar-with-dependencies.jar"/>
+	<classpathentry kind="lib" path="/share/l2ie/gen/TPavatar/libTTS/marytts-lang-de-5.1.2.jar"/>
+	<classpathentry kind="lib" path="/share/l2ie/gen/TPavatar/libTTS/marytts-lang-en-5.1.2.jar"/>
+	<classpathentry kind="lib" path="/share/l2ie/gen/TPavatar/libTTS/marytts-lang-fr-5.1.2.jar"/>
+	<classpathentry kind="lib" path="/share/l2ie/gen/TPavatar/libTTS/marytts-lang-it-5.1.2.jar"/>
+	<classpathentry kind="lib" path="/share/l2ie/gen/TPavatar/libTTS/marytts-lang-ru-5.1.2.jar"/>
+	<classpathentry kind="lib" path="/share/l2ie/gen/TPavatar/libTTS/marytts-lang-sv-5.1.2.jar"/>
+	<classpathentry kind="lib" path="/share/l2ie/gen/TPavatar/libTTS/marytts-lang-te-5.1.2.jar"/>
+	<classpathentry kind="lib" path="/share/l2ie/gen/TPavatar/libTTS/marytts-lang-tr-5.1.2.jar"/>
+	<classpathentry kind="lib" path="/share/l2ie/gen/TPavatar/libTTS/marytts-runtime-5.1.2-jar-with-dependencies.jar"/>
+	<classpathentry kind="lib" path="/share/l2ie/gen/TPavatar/libTTS/voice-cmu-slt-hsmm-5.1.2.jar"/>
+	<classpathentry kind="lib" path="/share/l2ie/gen/TPavatar/libTTS/voice-dfki-pavoque-neutral-hsmm-5.1.jar"/>
+	<classpathentry kind="lib" path="/share/l2ie/gen/TPavatar/libTTS/voice-istc-lucia-hsmm-5.1.jar"/>
+	<classpathentry kind="lib" path="/share/l2ie/gen/TPavatar/libTTS/voice-upmc-pierre-hsmm-5.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -12,8 +12,8 @@ object Client extends App
 	  Data.openFile()
 	  XMLSearch.init()
 	  
-	 while (true)
-	  SpeechSynthetizer.say("éki nokolao ")
+	 //while (true)
+	 // SpeechSynthetizer.say("éki nokolao ")
 	// TestAvatar.check(MachineImpl)
 	
 }
