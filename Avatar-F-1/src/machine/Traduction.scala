@@ -87,10 +87,10 @@ object Traduction
    
     if (Traduction.askingLanguage != null)
       {
-            if (MyCorrection.distancedeHamming(r.rawInput, Traduction.expressionBase(Traduction.askingLanguage)(0)))
+            if (MyCorrection.distancedeHamming(r.rawInput, Traduction.expressionBase(Traduction.askingLanguage)(0))) // oui / non 
             {
                   
-                  r.results ::= Traduction.expressionBase(Traduction.askingLanguage)(5)
+                  r.results ::= Traduction.expressionBase(Traduction.askingLanguage)(5) // set language, quelle est votre demande?
                   Traduction.currentLanguage = Traduction.askingLanguage
                   Traduction.askingLanguage = null
                   return false
@@ -98,7 +98,7 @@ object Traduction
             else
             {  
                 Traduction.askingLanguage = Traduction.exploreLanguage(Traduction.askingLanguage)
-                r.results ::= Traduction.expressionBase(Traduction.askingLanguage)(4);
+                r.results ::= Traduction.expressionBase(Traduction.askingLanguage)(4); // parlez vous XXX?
                  return false
            }
          
@@ -109,7 +109,7 @@ object Traduction
       if (detectedLanguage != Traduction.currentLanguage )
       {
        
-         r.results ::= Traduction.expressionBase(detectedLanguage)(4)
+         r.results ::= Traduction.expressionBase(detectedLanguage)(4) // parlez vous xxx?
          Traduction.askingLanguage = detectedLanguage;
          
          return false
